@@ -1,0 +1,98 @@
+#HELP.md
+#.gradle
+#build/
+#!gradle/wrapper/gradle-wrapper.jar
+#!**/src/main/**/build/
+#!**/src/test/**/build/
+#
+#### STS ###
+#.apt_generated
+#.classpath
+#.factorypath
+#.project
+#.settings
+#.springBeans
+#.sts4-cache
+#bin/
+#!**/src/main/**/bin/
+#!**/src/test/**/bin/
+#
+#### IntelliJ IDEA ###
+#.idea
+#*.iws
+#*.iml
+#*.ipr
+#out/
+#!**/src/main/**/out/
+#!**/src/test/**/out/
+#
+#### NetBeans ###
+#/nbproject/private/
+#/nbbuild/
+#/dist/
+#/nbdist/
+#/.nb-gradle/
+#
+#### VS Code ###
+#.vscode/
+
+### 1. Build Tools & Frameworks ###
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### 2. IDE Settings (STS, Eclipse) ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### 3. IDE Settings (IntelliJ IDEA) ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### 4. IDE Settings (Others) ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+.vscode/
+
+### 5. OS Junk Files (Mac/Windows) ###
+.DS_Store
+.DS_Store?
+._*
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+### 6. Logs ###
+*.log
+logs/
+
+### 7. ★★★ Secrets (민감 정보) ★★★ ###
+# DB 비밀번호나 API 키가 들어있는 설정 파일은 절대 올리면 안 됩니다.
+# 방법 A: 설정 파일 전체를 무시 (가장 안전하지만, 팀원과 공유 시 불편할 수 있음)
+src/main/resources/application.yml
+src/main/resources/application.properties
+
+# 방법 B: 특정 'secret'이 포함된 파일만 무시 (권장)
+# application-secret.yml 등을 만들어 거기에만 비번을 적고 아래 줄 주석 해제
+# *-secret.yml
+# *-secret.properties
+
