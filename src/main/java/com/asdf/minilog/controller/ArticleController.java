@@ -40,7 +40,7 @@ public class ArticleController {
     @ApiResponse(responseCode = "404", description = "사용자 없음")
   })
   public ResponseEntity<ArticleResponseDto> getArticle(@PathVariable Long articleId) {
-    var article = articleService.getArticleById(articleId);
+    ArticleResponseDto article = articleService.getArticleById(articleId);
     return ResponseEntity.ok(article);
   }
 
