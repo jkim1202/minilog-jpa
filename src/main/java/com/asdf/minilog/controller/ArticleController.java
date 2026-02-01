@@ -29,8 +29,10 @@ public class ArticleController {
     @ApiResponse(responseCode = "200", description = "성공"),
     @ApiResponse(responseCode = "404", description = "사용자 없음")
   })
-  public ResponseEntity<ArticleResponseDto> createArticle(@AuthenticationPrincipal MinilogUserDetails userDetails, @RequestBody ArticleRequestDto article) {
-    ArticleResponseDto createdArticle = articleService.createArticle(userDetails,article);
+  public ResponseEntity<ArticleResponseDto> createArticle(
+      @AuthenticationPrincipal MinilogUserDetails userDetails,
+      @RequestBody ArticleRequestDto article) {
+    ArticleResponseDto createdArticle = articleService.createArticle(userDetails, article);
     return ResponseEntity.ok(createdArticle);
   }
 
@@ -52,8 +54,11 @@ public class ArticleController {
     @ApiResponse(responseCode = "404", description = "포스트 없음")
   })
   public ResponseEntity<ArticleResponseDto> updateArticle(
-      @AuthenticationPrincipal MinilogUserDetails userDetails, @PathVariable Long articleId, @RequestBody ArticleRequestDto article) {
-    var updatedArticle = articleService.updateArticle(userDetails.getId(), articleId, article.getContent());
+      @AuthenticationPrincipal MinilogUserDetails userDetails,
+      @PathVariable Long articleId,
+      @RequestBody ArticleRequestDto article) {
+    var updatedArticle =
+        articleService.updateArticle(userDetails.getId(), articleId, article.getContent());
     return ResponseEntity.ok(updatedArticle);
   }
 
@@ -63,7 +68,8 @@ public class ArticleController {
     @ApiResponse(responseCode = "204", description = "삭제됨"),
     @ApiResponse(responseCode = "404", description = "포스트 없음")
   })
-  public ResponseEntity<Void> deleteArticle(@AuthenticationPrincipal MinilogUserDetails userDetails, @PathVariable Long articleId) {
+  public ResponseEntity<Void> deleteArticle(
+      @AuthenticationPrincipal MinilogUserDetails userDetails, @PathVariable Long articleId) {
     articleService.deleteArticle(userDetails.getId(), articleId);
     return ResponseEntity.noContent().build();
   }

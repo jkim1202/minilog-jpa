@@ -57,9 +57,9 @@ public class UserController {
     @ApiResponse(responseCode = "404", description = "사용자 없음")
   })
   public ResponseEntity<UserResponseDto> updateUser(
-          @AuthenticationPrincipal MinilogUserDetails userDetails,
-          @PathVariable Long userId,
-          @RequestBody UserRequestDto updatedUser) {
+      @AuthenticationPrincipal MinilogUserDetails userDetails,
+      @PathVariable Long userId,
+      @RequestBody UserRequestDto updatedUser) {
     UserResponseDto user = userService.updateUser(userDetails, userId, updatedUser);
     return ResponseEntity.ok(user);
   }

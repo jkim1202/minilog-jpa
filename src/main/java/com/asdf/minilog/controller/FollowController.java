@@ -29,7 +29,9 @@ public class FollowController {
     @ApiResponse(responseCode = "200", description = "성공"),
     @ApiResponse(responseCode = "404", description = "사용자 없음")
   })
-  public ResponseEntity<FollowResponseDto> follow(@AuthenticationPrincipal MinilogUserDetails userDetails, @RequestBody FollowRequestDto request) {
+  public ResponseEntity<FollowResponseDto> follow(
+      @AuthenticationPrincipal MinilogUserDetails userDetails,
+      @RequestBody FollowRequestDto request) {
 
     Long followerId = userDetails.getId();
     Long followeeId = request.getFolloweeId();
@@ -45,7 +47,7 @@ public class FollowController {
     @ApiResponse(responseCode = "404", description = "사용자 없음")
   })
   public ResponseEntity<Void> unfollow(
-          @AuthenticationPrincipal MinilogUserDetails userDetails, @PathVariable Long followeeId) {
+      @AuthenticationPrincipal MinilogUserDetails userDetails, @PathVariable Long followeeId) {
 
     followService.unfollow(userDetails.getId(), followeeId);
     return ResponseEntity.ok().build();

@@ -1,7 +1,6 @@
 package com.asdf.minilog.entity;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
@@ -9,13 +8,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
 
 @Entity
 @Table(name = "users")
@@ -25,6 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EntityListeners(AuditingEntityListener.class)
 public class User {
   private static PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -56,7 +53,7 @@ public class User {
       fetch = FetchType.LAZY)
   private List<Article> articles;
 
-  public static UserBuilder builder(){
+  public static UserBuilder builder() {
     return new UserBuilder();
   }
 
@@ -64,7 +61,7 @@ public class User {
     this.password = password;
   }
 
-  public static class UserBuilder{
+  public static class UserBuilder {
     private Long id;
     private String username;
     private String password;
@@ -79,12 +76,12 @@ public class User {
       return this;
     }
 
-    public UserBuilder username(String  username) {
+    public UserBuilder username(String username) {
       this.username = username;
       return this;
     }
 
-    public UserBuilder password(String  password) {
+    public UserBuilder password(String password) {
       this.password = passwordEncoder.encode(password);
       return this;
     }
@@ -108,6 +105,7 @@ public class User {
       this.roles = roles;
       return this;
     }
+
     public User build() {
       User user = new User();
       user.id = this.id;
@@ -118,8 +116,6 @@ public class User {
       user.articles = this.articles;
       user.roles = this.roles;
       return user;
-
     }
-
   }
 }
