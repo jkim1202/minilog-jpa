@@ -90,6 +90,7 @@ logs/
 # 방법 A: 설정 파일 전체를 무시 (가장 안전하지만, 팀원과 공유 시 불편할 수 있음)
 src/main/resources/application.yml
 src/main/resources/application.properties
+src/main/resources/application-dev.properties
 ### Ignore Test Code ###
 src/test/
 

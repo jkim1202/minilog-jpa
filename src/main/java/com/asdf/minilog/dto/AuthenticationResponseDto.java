@@ -7,5 +7,5 @@ import lombok.NonNull;
 @Data
 @Builder
 public class AuthenticationResponseDto {
-    @NonNull private String jwt;
+  @NonNull private String jwt;
 }

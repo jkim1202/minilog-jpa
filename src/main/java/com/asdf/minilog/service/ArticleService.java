@@ -29,7 +29,8 @@ public class ArticleService {
     this.userRepository = userRepository;
   }
 
-  public ArticleResponseDto createArticle(MinilogUserDetails userDetails, ArticleRequestDto articleRequestDto) {
+  public ArticleResponseDto createArticle(
+      MinilogUserDetails userDetails, ArticleRequestDto articleRequestDto) {
     Long userId = userDetails.getId();
     String content = articleRequestDto.getContent();
     User user =

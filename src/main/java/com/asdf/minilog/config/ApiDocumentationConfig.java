@@ -13,16 +13,15 @@ public class ApiDocumentationConfig {
   @Bean
   public OpenAPI openAPI() {
     return new OpenAPI()
-            .components(new Components()
-                    .addSecuritySchemes("bearer-key",
-                            new SecurityScheme()
-                                    .type(SecurityScheme.Type.HTTP)
-                                    .scheme("bearer")
-                                    .bearerFormat("JWT")))
-            .addSecurityItem(new SecurityRequirement().addList("bearer-key"))
-            .info(new Info()
-                    .title("MiniLog API")
-                    .description("MiniLog 프로젝트 API 명세서")
-                    .version("1.0.0"));
+        .components(
+            new Components()
+                .addSecuritySchemes(
+                    "bearer-key",
+                    new SecurityScheme()
+                        .type(SecurityScheme.Type.HTTP)
+                        .scheme("bearer")
+                        .bearerFormat("JWT")))
+        .addSecurityItem(new SecurityRequirement().addList("bearer-key"))
+        .info(new Info().title("MiniLog API").description("MiniLog 프로젝트 API 명세서").version("1.0.0"));
   }
 }
