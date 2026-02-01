@@ -30,7 +30,7 @@ public class ArticleController {
     @ApiResponse(responseCode = "404", description = "사용자 없음")
   })
   public ResponseEntity<ArticleResponseDto> createArticle(@AuthenticationPrincipal MinilogUserDetails userDetails, @RequestBody ArticleRequestDto article) {
-    ArticleResponseDto createdArticle = articleService.createArticle(article);
+    ArticleResponseDto createdArticle = articleService.createArticle(userDetails,article);
     return ResponseEntity.ok(createdArticle);
   }
 

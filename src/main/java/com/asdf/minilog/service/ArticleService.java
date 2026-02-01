@@ -9,6 +9,7 @@ import com.asdf.minilog.exception.NotAuthorizedException;
 import com.asdf.minilog.exception.UserNotFoundException;
 import com.asdf.minilog.repository.ArticleRepository;
 import com.asdf.minilog.repository.UserRepository;
+import com.asdf.minilog.security.MinilogUserDetails;
 import com.asdf.minilog.util.EntityDtoMapper;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,8 @@ public class ArticleService {
     this.userRepository = userRepository;
   }
 
-  public ArticleResponseDto createArticle(ArticleRequestDto articleRequestDto) {
-    Long userId = articleRequestDto.getAuthorId();
+  public ArticleResponseDto createArticle(MinilogUserDetails userDetails, ArticleRequestDto articleRequestDto) {
+    Long userId = userDetails.getId();
     String content = articleRequestDto.getContent();
     User user =
         userRepository
