@@ -90,6 +90,8 @@ logs/
 # 방법 A: 설정 파일 전체를 무시 (가장 안전하지만, 팀원과 공유 시 불편할 수 있음)
 src/main/resources/application.yml
 src/main/resources/application.properties
+### Ignore Test Code ###
+src/test/
 
 # 방법 B: 특정 'secret'이 포함된 파일만 무시 (권장)
 # application-secret.yml 등을 만들어 거기에만 비번을 적고 아래 줄 주석 해제

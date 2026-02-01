@@ -22,9 +22,15 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.7.0'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'mysql:mysql-connector-java:8.0.32'
+
+	// Spring Security와 JWT 의존성 추가
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// JWT 라이브러리 추가
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
 
 	compileOnly 'org.projectlombok:lombok'
 
@@ -38,8 +44,15 @@ dependencies {
 	testImplementation 'org.testcontainers:testcontainers:1.20.1'
 	testImplementation 'org.testcontainers:mysql:1.20.1'
 
+	//Spring Security 테스트를 위한 의존성 추가
+	testImplementation 'org.springframework.security:spring-security-test'
 
+	//JUnit 5 테스트를 위한 런타임 의존성 추가
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	//JWT 라이브러리 구현체를 추가
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
 }
 
 tasks.named('test') {

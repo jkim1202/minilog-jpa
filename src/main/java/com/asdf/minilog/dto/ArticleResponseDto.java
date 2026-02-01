@@ -13,4 +13,5 @@ public class ArticleResponseDto {
   @NonNull private Long authorId;
   @NonNull private String authorName;
   @NonNull private LocalDateTime createdAt;
+  @NonNull private LocalDateTime updatedAt;
 }
